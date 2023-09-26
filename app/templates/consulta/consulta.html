@@ -25,15 +25,6 @@
           <a class="nav-link text-dark" href="/reserva/">Reserva</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" href="/categoria/">Categoria</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="/autor/">Autor</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="/editora/">Editora</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link text-dark" href="/admin/">Administração</a>
         </li>
       </ul>
@@ -51,16 +42,22 @@
               <th scope="col">Gênero</th>
               <th scope="col">Preço</th>
               <th scope="col">Data Publicação</th>
+              <th scope="col">Status</th>
             </tr>
             {% for Livro in consultas %}
           </thead>
           <tbody>
-           <td>{{Livro.nome}}</td>
+           <td>{{Livro.nome_livro}}</td>
            <td>{{Livro.autor}}</td>
            <td>{{Livro.editora}}</td>
-           <td>{{Livro.categoria}}</td>
+           <td>
+            {% for genero in Livro.genero.all %}
+            {{genero.nome_genero}}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+           </td>
            <td>{{Livro.preco}}</td>
-           <td>{{Livro.data_publicacao}}</td>
+           <td>{{Livro.data_plub}}</td>
+           <td>{{Livro.status}}</td>
           </tbody>
            {% endfor %} 
         </table>

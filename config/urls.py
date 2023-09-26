@@ -23,8 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='index.html'), name='index'),
     path('consulta/', consulta, name='consultas'),
-    path('reserva/', reserva, name='reservas'),
-    path('categoria/', categoria, name='categoria'),
-    path('autor/', autor, name='autor'),
-    path('editora/', editora, name='editora'),
+    path('reserva/', reserva, name='reservas')
+
 ]
